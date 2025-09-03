@@ -1,13 +1,13 @@
 
-const loginForm = document.getElementById('loginForm');
-loginForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    const user = document.getElementById('username').value;
-    const pass = document.getElementById('password').value;
-    if(user === 'Admin' && pass === 'yordany0919'){
-        localStorage.setItem('currentUser', user);
-        alert('Login exitoso!');
+window.addEventListener('DOMContentLoaded', () => {
+    const user = localStorage.getItem('currentUser');
+    const status = document.getElementById('status');
+    if(user){
+        status.textContent = 'Bienvenido, ' + user;
     } else {
-        alert('Usuario o contraseña incorrectos');
+        status.textContent = 'No has iniciado sesión en Web 1';
     }
+    document.getElementById('whatsappBtn').addEventListener('click', () => {
+        window.open('https://wa.me/1234567890', '_blank');
+    });
 });
